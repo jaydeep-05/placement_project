@@ -1,25 +1,61 @@
 {%extends 'PMS_website/index.html'%}
-
+{% load static %}
 {% load crispy_forms_tags %}
 {% block content %}
-<title>Login</title>
-    <div class="container-fluid mx-auto form-div">
-        <div class="">
-            <form  method="POST" class="uniForm mt-4">
-                {%csrf_token%}
-                <fieldset class="form-group">
-                    <legend class="legend">Login</legend>
-                    {{form|crispy}}
-                    <input type="checkbox" class="form-group show-password" onclick="show_password()"/><span class="show-password"> Show Password</span>
-                </fieldset>
 
-                <div class="form-group mt-3">
-                    <button class="button" type="submit"><span>Login</span></button>
-                    
+<title>KJSIEIT-PRG</title>
+
+    <div id="root">
+        <div class="content-1">
+            <div class="content-2">
+                <div class="content-3">
+                    <div>
+                        <div class="home-page-content">
+                            <h1 class="project-title">
+                                Placement Report Generator
+                            </h1>
+                            <h2 class="developers-title">
+                                Developed by
+                            </h2>
+                            <h2 class="developers-title">
+                                Department of Computer Engineering 
+                            </h2>
+                        </div>
+                        <!-- Login Button -->
+                        <div class="text-center">
+                            <button class="btn btn-color" type="button"><a href="#login-form">LOGIN</a></button>
+                        </div>
+                        <!-- Login Form Template  -->
+                        <div class="container-fluid mx-auto form-div" id="login-form">
+                            <div class="">
+                                <img src="{% static 'assets/kjsieit-logo.png'%}" alt="KJSIEIT Logo">
+                                <form  method="POST" class="uniForm mt-4">
+                                    {%csrf_token%}
+                                        <legend class="legend">Sign In to your Account</legend>
+                                        {{form|crispy}}
+                                        <input type="checkbox" class="form-group show-password" onclick="show_password()"/><span class="show-password">Show Password</span>
+                                    <div class="mt">
+                                        <button class="btn btn-color px" type="submit"><span>Login</span></button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </form>
+                <div class="footer-container">
+                    <a href="https://kjsieit.somaiya.edu.in/en" rel="noopener noreferrer" target="_blank">KJSIEIT</a>
+                    <div style="user-select: none;">
+                        <a href="#">Support</a>
+                        |
+                        <a href="#">About Us</a>
+                    </div>
+                    <a href="https://www.somaiya.edu/en" rel="noopener noreferrer" target="_blank">Somaiya Vidyavihar</a>
+                </div>
+            </div>
         </div>
     </div>
+
+    
     <script>
         function show_password() {
             var x = document.getElementById("id_password");
