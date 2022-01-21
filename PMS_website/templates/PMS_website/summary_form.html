@@ -1,0 +1,36 @@
+{%extends 'PMS_website/index.html'%}
+{% load crispy_forms_tags %}
+{% block content %}
+<title>Add Summary Data</title>
+
+{% if user.is_authenticated %}
+    <div class="container-fluid  ">
+        <div class="mx-auto w-50 ">
+            <form  method="POST" class="m-5">
+                {%csrf_token%}
+                <fieldset class="form-group">
+                    <legend>Add</legend>
+                    {{form|crispy}}
+                </fieldset>
+                <div class="form-group mt-3">
+                    <button class="btn btn-primary" type="submit">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% else %}
+    <div class="container-fluid">
+      <div class="offset-md-3 pt-5 w-50">
+        <h2 class="h2">You are not logged in!</h2>
+        <p class="p">
+          Please login to use the features.
+        </p>
+        <div class="border-top pt-3">
+          <small class="text-muted">
+            <a href="{%url 'login'%}">Login in to continue!</a>
+          </small>
+        </div>
+      </div>
+    </div>
+{% endif %}
+{%endblock content%}

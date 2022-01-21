@@ -1,0 +1,211 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&display=swap");
+/* Fonts for buttons */
+@import url("https://fonts.googleapis.com/css2?family=Jost&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Acme&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap");
+
+:root {
+  --heading: "Fredoka One", cursive;
+  --regular_font: "Roboto", sans-serif;
+  --username_font: "Varela Round", sans-serif;
+  --data-font: "PT Sans", sans-serif;
+  --font-color: #112d32;
+  --background: #edeae5;
+  --login_font: "Balsamiq Sans", cursive;
+  --btn1: "Jost", sans-serif;
+  --btn2: "Balsamiq Sans", cursive;
+  --btn3: "Acme", sans-serif;
+  --btn4: "Josefin Sans", sans-serif;
+}
+
+nav {
+  background-color: var(--background);
+  /* font-family: var(--data-font); */
+  color: var(--font-color);
+}
+
+nav a {
+  font-family: var(--heading) !important;
+  padding-top: 0.5%;
+}
+
+.body {
+  background-color: var(--background);
+}
+/* 
+.custom-btn {
+  width: 100px;
+  height: 30px;
+  padding: 10px 25px;
+  border: 2px solid #000;
+  font-family: var(--btn3);
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-11 {
+  transition: all 0.3s ease;
+}
+
+.btn-11:hover {
+  background: var(--font-color);
+  color: #fff;
+}
+
+.btn-11:before {
+  content: "";
+  top: -180px;
+  left: 0;
+  width: 30px;
+  height: 100%;
+  background-color: #fff;
+  animation: shiny-btn1 3s ease-in-out infinite;
+}
+
+.btn-11:active {
+  box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, 0.3),
+    -4px -4px 6px 0 rgba(116, 125, 136, 0.2),
+    inset -4px -4px 6px 0 rgba(255, 255, 255, 0.2),
+    inset 4px 4px 6px 0 rgba(0, 0, 0, 0.2);
+} */
+
+.dt-button.btn {
+  width: 130px;
+  height: 40px;
+  box-sizing: border-box;
+  /* background-color: #39C0ED; */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  /* border: 3px solid var(--font-color); */
+  border-radius: 4px;
+  color: var(--font-color);
+  cursor: pointer;
+  align-self: center;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1;
+  margin: 5px;
+  padding: 4px 4px;
+  text-decoration: none;
+  text-align: center;
+  font-family: var(--regular_font);
+}
+
+.dt-button.btn:hover, .dt-button.btn:focus {
+  color: #fff;
+  outline: 0;
+} 
+
+.dt-button.first {
+  transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+}
+
+.dt-button.first:hover {
+  box-shadow: 0 0 40px 40px var(--font-color) inset;
+} 
+
+.buttons-collection.btn-dropdown{
+  width: 200px;
+  height: 40px;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  /* background-color: #39C0ED; */
+  /* border: 3px solid var(--font-color); */
+  border-radius: 4px;
+  color: var(--font-color);
+  cursor: pointer;
+  align-self: center;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1;
+  margin: 2px;
+  padding: 4px 4px;
+  text-decoration: none;
+  text-align: center;
+  font-family: var(--regular_font);
+}
+
+.buttons-collection.btn-dropdown:hover, .buttons-collection.btn-dropdown:focus {
+  color: #fff;
+  outline: 0;
+} 
+
+.buttons-collection.dropdown{
+  transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+}
+
+.buttons-collection.dropdown:hover{
+  box-shadow: 0 0 40px 40px var(--font-color) inset;
+  color: #ffffff;
+}
+
+.buttons-collection span.dt-down-arrow:hover{
+  color: #ffffff;
+}
+
+button#nba-btn {
+  font-family: var(--btn4);
+  border-radius: 2px;
+}
+
+button#student-wise-btn {
+  font-family: var(--btn4);
+  border-radius: 2px;
+  font-size: 18px;
+}
+
+button#company-wise-btn {
+  font-family: var(--btn4);
+  border-radius: 2px;
+  font-size: 18px;
+}
+
+a.dropdown-item {
+  font-family: var(--heading);
+  border-radius: 2px;
+  color: var(--font-color);
+  font-size: 20px;
+}
+
+#nba_filter {
+  margin-right: 2%;
+}
+
+div.dataTables_scroll {
+  width: 100%;
+  margin-left: 0.5%;
+}
+
+#student-table_filter{
+  margin-right: 2%;
+}
+
+#company-table_filter {
+  margin-right: 2%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

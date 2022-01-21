@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Play&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@700&display=swap');
+:root { 
+    --heading:  'Fredoka One', cursive;
+    --regular_font: 'Roboto', sans-serif;
+    --username_font: 'Varela Round', sans-serif;
+    --font-color: #112d32;
+    --background: #edeae5;
+    /* --color-smoke: #e4e4e4; */
+    --login_font: 'Balsamiq Sans', cursive;
+}
+
+nav{
+    background-color: var(--background);
+    font-family: var(--heading);
+    color: var(--font-color);
+}
+
+.navbar-brand{
+    margin-top: 1%;
+    margin-left: 35%;
+    font-size: 2rem;
+}
+
+body{
+   background-color: var(--background);
+}
+
+.legend{
+    font-family: var(--regular_font);
+    font-size: 2rem;
+    text-align: center;
+}
+
+.form-div{
+    margin-top: 5%;
+    width: 40%;
+    background: var(--background); 
+    border-radius: 1.5rem;
+    border: 2px solid #807f7e;
+}
+
+.show-password{
+  margin-top: 3%;
+}
+
+label{
+    font-family: var(--username_font);
+    font-size: 20px;
+    margin: 10px;
+}
+
+.button {
+  font-family: var(--login_font);
+  font-size: 1.3rem;
+  margin-top: 10px;
+  margin-bottom: 25px;
+  border-radius: 20px;
+  background-color: var(--font-color);
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  padding: 10px;
+  width: 120px;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.login-class{
+  margin-left: 55%;
+}
+
+.login-class a{
+  font-family: var(--login_font);
+  color: var(--font-color);
+  font-size: 1rem;
+}
+
+.logout-class{
+  font-family: var(--login_font);
+  color: var(--font-color);
+  font-size: 1.5rem;
+}
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+

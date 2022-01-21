@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@700&display=swap');
+
+:root {
+    --heading:  'Fredoka One', cursive;
+    --regular_font: 'Roboto', sans-serif;
+    --username_font: 'Varela Round', sans-serif;
+    --font-color: #112d32;
+    --background: #edeae5;
+    --login_font: 'Balsamiq Sans', cursive;
+}
+
+#navbarNavDropdown{
+    margin-right: 5%;
+}
+nav{
+    background-color: var(--background);
+    color: var(--font-color);
+    font-family: var(--heading);
+}
+
+.body{
+    background-color: var(--background);
+    color: var(--font-color) !important;
+    font-family: var(--heading);
+}
+
+.legend{
+    font-family: var(--regular_font);
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.form-select{
+    font-family: var(--username_font);
+    font-size: 20px;
+    margin-top: -2%;
+    margin-left: -10%;
+}
+
+.button {
+    font-family: var(--login_font);
+    font-size: 1.3rem;
+    margin-top: 10px;
+    margin-left: 15%;
+    margin-bottom: 25px;
+    border-radius: 35px;
+    background-color: var(--font-color);
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 10px;
+    width: 150px;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+  
+.button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+  
+.button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+  
+.button:hover span {
+    padding-right: 25px;
+}
+  
+.button:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+
