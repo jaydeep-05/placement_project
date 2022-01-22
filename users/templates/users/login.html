@@ -1,69 +1,93 @@
-{%extends 'PMS_website/index.html'%}
+<!-- {%extends 'PMS_website/index.html'%} -->
+
 {% load static %}
 {% load crispy_forms_tags %}
-{% block content %}
 
-<title>KJSIEIT-PRG</title>
+<!-- {% block content %} -->
+<head>
+    <title>KJSIEIT-PRG</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
 
-    <div id="root">
-        <div class="content-1">
-            <div class="content-2">
-                <div class="content-3">
-                    <div>
-                        <div class="home-page-content">
-                            <h1 class="project-title">
-                                Placement Report Generator
-                            </h1>
-                            <h2 class="developers-title">
-                                Developed by
-                            </h2>
-                            <h2 class="developers-title">
-                                Department of Computer Engineering 
-                            </h2>
-                        </div>
-                        <!-- Login Button -->
-                        <div class="text-center">
-                            <button class="btn btn-color" type="button"><a href="#login-form">LOGIN</a></button>
-                        </div>
-                        <!-- Login Form Template  -->
-                        <div class="container-fluid mx-auto form-div" id="login-form">
-                            <div class="">
-                                <img src="{% static 'assets/kjsieit-logo.png'%}" alt="KJSIEIT Logo">
-                                <form  method="POST" class="uniForm mt-4">
-                                    {%csrf_token%}
-                                        <legend class="legend">Sign In to your Account</legend>
-                                        {{form|crispy}}
-                                        <input type="checkbox" class="form-group show-password" onclick="show_password()"/><span class="show-password">Show Password</span>
-                                    <div class="mt">
-                                        <button class="btn btn-color px" type="submit"><span>Login</span></button>
-                                    </div>
-                                </form>
+    <body>
+        <header id="header">
+            <div class="container">
+                <img class="college_logo_img" src="{% static 'assets/logo.jpg' %}" alt="College Logo">    
+                <div class="logo-text">
+                    <h1>SOMAIYA</h1>
+                    <h2>VIDYAVIHAR</h2>
+                    <div class="small-text">
+                        <h4>K. J. Somaiya Institute of Engineering and Information Technology</h4>
+                        An Autonomous Institute Affiliated to University of Mumbai.
+                        <br/>
+                        Accredited by NAAC and NBA, Approved by AICTE, New Delhi.
+                    </div>
+                </div>
+                <br/>
+                <ul>
+                    <img class="trust_logo_img" src="{% static 'assets/TRUST_LOGO.fb3cec54.svg' %}" alt="Trust Logo">
+                </ul>
+            </div>
+        </header>
+    
+        <div id="root">
+            <div class="content-1">
+                <div class="content-2">
+                    <div class="content-3">
+                        <div>
+                            <div class="home-page-content">
+                                <h1 class="project-title">
+                                    Placement Report Generator
+                                </h1>
+                                <h2 class="developers-title">
+                                    Developed by
+                                </h2>
+                                <h2 class="developers-title">
+                                    Department of Computer Engineering 
+                                </h2>
+                            </div>
+                            <!-- Login Form Template  -->
+                            <div class="container-fluid form-div">
+                                <div class="">
+                                    <img class="cf-image" src="{% static 'assets/kjsieit-logo.png'%}" alt="KJSIEIT Logo">
+                                    <form  method="POST" class="uniForm mt-4">
+                                        {%csrf_token%}
+                                            <!-- <legend class="legend">Sign In to your Account</legend> -->
+                                            <h4 class="legend">Sign In to your Account</h4>
+                                            {{form|crispy}}
+                                            <input type="checkbox" class="form-group show-password" onclick="show_password()"/><span class="show-password">Show Password</span>
+                                        <div class="mt">
+                                            <button class="btn btn-color px" type="submit"><span>LOGIN</span></button>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="footer-container">
-                    <a href="https://kjsieit.somaiya.edu.in/en" rel="noopener noreferrer" target="_blank">KJSIEIT</a>
-                    <div style="user-select: none;">
-                        <a href="#">Support</a>
-                        |
-                        <a href="#">About Us</a>
+                    <!-- Footer Content -->
+                    <div class="footer-container">
+                        <a href="https://kjsieit.somaiya.edu.in/en" rel="noopener noreferrer" target="_blank">KJSIEIT</a>
+                        <div style="user-select: none;">
+                            <a href="#">Support</a>
+                            |
+                            <a href="#">About Us</a>
+                        </div>
+                        <a href="https://www.somaiya.edu/en" rel="noopener noreferrer" target="_blank">Somaiya Vidyavihar</a>
                     </div>
-                    <a href="https://www.somaiya.edu/en" rel="noopener noreferrer" target="_blank">Somaiya Vidyavihar</a>
                 </div>
             </div>
         </div>
-    </div>
-
+        <!-- Show Password Script -->
+        <script>
+            function show_password() {
+                var x = document.getElementById("id_password");
+                if (x.type === "password") {
+                  x.type = "text";
+                } else {
+                  x.type = "password";
+                }
+              }
+        </script>
+    </body>
     
-    <script>
-        function show_password() {
-            var x = document.getElementById("id_password");
-            if (x.type === "password") {
-              x.type = "text";
-            } else {
-              x.type = "password";
-            }
-          }
-    </script>
-{%endblock content%}
+<!-- {%endblock content%} -->
