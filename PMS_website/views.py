@@ -6,7 +6,7 @@ from .forms import *
 from django.contrib import messages
 # Create your views here.
 def home_page(request):
-    years=Student_Details.objects.filter().values('placed_year').distinct()
+    years=Student_Details.objects.filter().values('placed_year').order_by('placed_year').distinct()
     return render(request,'PMS_website/home.html',{'years':years})
 
 def final_page(request):
