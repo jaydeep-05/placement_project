@@ -1,80 +1,132 @@
-@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&display=swap");
-/* Fonts for buttons */
-@import url("https://fonts.googleapis.com/css2?family=Jost&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Acme&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap");
-
-:root {
-  --heading: "Fredoka One", cursive;
-  --regular_font: "Roboto", sans-serif;
-  --username_font: "Varela Round", sans-serif;
-  --data-font: "PT Sans", sans-serif;
-  --font-color: #112d32;
-  --background: #edeae5;
-  --login_font: "Balsamiq Sans", cursive;
-  --btn1: "Jost", sans-serif;
-  --btn2: "Balsamiq Sans", cursive;
-  --btn3: "Acme", sans-serif;
-  --btn4: "Josefin Sans", sans-serif;
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-size: 1.1rem;
+  scroll-behavior: smooth;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-nav {
-  background-color: var(--background);
-  /* font-family: var(--data-font); */
-  color: var(--font-color);
+body {
+  background-image: url("../assets/back.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
-nav a {
-  font-family: var(--heading) !important;
-  padding-top: 0.5%;
+nav.navbar.navbar-expand-lg.first-nav {
+  background-color: #911717;
 }
 
-.body {
-  background-color: var(--background);
+.first-nav {
+  height: 3.5rem;
 }
-/* 
-.custom-btn {
-  width: 100px;
-  height: 30px;
-  padding: 10px 25px;
-  border: 2px solid #000;
-  font-family: var(--btn3);
+
+.container-1 {
+  height: fit-content;
+}
+
+.navbar-brand {
+  color: #ffffff;
+  display: inline-block;
+  margin-right: 1rem;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  white-space: nowrap;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+a.navbar-brand {
+  color: #ffffff;
   font-weight: 500;
-  background: transparent;
+  text-decoration: none;
   cursor: pointer;
-  transition: all 0.3s ease;
 }
 
-.btn-11 {
-  transition: all 0.3s ease;
+a.navbar-brand:hover {
+  color: #ffffff;
 }
 
-.btn-11:hover {
-  background: var(--font-color);
-  color: #fff;
+.btn-1 {
+  cursor: pointer;
+  font-weight: bold;
+  display: inline-block;
+  text-align: center;
+  border: 1px solid transparent;
+  padding: 0.175rem 0.35rem;
+  font-size: 1.25rem;
+  border-radius: 0.4rem;
+  line-height: 1.5;
+  user-select: none;
 }
 
-.btn-11:before {
-  content: "";
-  top: -180px;
-  left: 0;
-  width: 30px;
-  height: 100%;
-  background-color: #fff;
-  animation: shiny-btn1 3s ease-in-out infinite;
+.btn-1:hover {
+  color: #ffffff;
+  background-color: #701212;
+  border-color: #651010;
 }
 
-.btn-11:active {
-  box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, 0.3),
-    -4px -4px 6px 0 rgba(116, 125, 136, 0.2),
-    inset -4px -4px 6px 0 rgba(255, 255, 255, 0.2),
-    inset 4px 4px 6px 0 rgba(0, 0, 0, 0.2);
-} */
+.btn-color-1 {
+  color: #ffffff;
+  background-color: #911717;
+  border-color: #911717;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.btn-color-1 span {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.btn-2 {
+  cursor: pointer;
+  font-weight: bold;
+  display: inline-block;
+  text-align: center;
+  border: 1px solid transparent;
+  padding: 0.175rem 0.35rem;
+  font-size: 1.25rem;
+  border-radius: 0.4rem;
+  line-height: 1.5;
+  user-select: none;
+}
+
+.btn-2:hover {
+  color: #ffffff;
+  background-color: #701212;
+  border-color: #651010;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .dt-button.btn {
   width: 130px;
@@ -153,30 +205,6 @@ nav a {
 
 .buttons-collection span.dt-down-arrow:hover{
   color: #ffffff;
-}
-
-button#nba-btn {
-  font-family: var(--btn4);
-  border-radius: 2px;
-}
-
-button#student-wise-btn {
-  font-family: var(--btn4);
-  border-radius: 2px;
-  font-size: 18px;
-}
-
-button#company-wise-btn {
-  font-family: var(--btn4);
-  border-radius: 2px;
-  font-size: 18px;
-}
-
-a.dropdown-item {
-  font-family: var(--heading);
-  border-radius: 2px;
-  color: var(--font-color);
-  font-size: 20px;
 }
 
 #nba_filter {

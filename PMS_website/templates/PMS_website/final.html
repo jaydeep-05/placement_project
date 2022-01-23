@@ -19,432 +19,418 @@
 </head>
 
 <body class="body">
-  <nav class="navbar navbar-expand-lg">
-    <div class="container">
-      <a class="navbar-brand" href="{%url 'home-page'%}" style="color: #112d32;
-        font-family: 'Fredoka One';
-        font-style: normal;
-        font-weight: 400;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/fredokaone/v8/k3kUo8kEI-tA1RRcTZGmTlHGCac.woff2) format('woff2');
-        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-      ">Placement Report Generator</a>
-      {% if user.is_authenticated %}
-      <div class="d-flex justify-content-end" id="navbarNavDropdown">
-        <button class="btn-outline-dark me-3" id="nba-btn">NBA</button>
-        <button class="btn-outline-dark me-3" id="student-wise-btn">Student-wise</button>
-        <button class="btn-outline-dark me-3" id="company-wise-btn">Company-wise</button>
-        <ul class="navbar-nav ">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" style="color: #112d32;" href="" id="navbarDropdownMenuLink"
-              role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="fas fa-user-circle fa-lg"></i>
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-      {%endif%}
-    </div>
-  </nav>
-  <div>
-    {% if user.is_authenticated %}
-    <div class="container-fluid mt-3" id="nba-table">
-      <table class="table table-hover display" id="nba">
-        <thead class="table-dark">
-          <tr>
-            <th scope="col">SR.NO.</th>
-            <th scope="col" class="">UID</th>
-            <th scope="col" >STUDENT NAME</th>
-            <th scope="col" class="">COMPANY PLACED</th>
-            <th scope="col">OFFER MODE</th>
-            <th scope="col">COMPANY TYPE</th>
-            <th scope="col" class="">CTC</th>
-            <th scope="col">DATE OF INTERVIEW</th>
-            <th scope="col">RECEIVED OFFER LETTER</th>
-            <th scope="col">DATE OF OFFER LETTER</th>
-          </tr>
-        </thead>
-        <tbody>
-          {%for result in results%}
-          <tr>
-            <th scope="">{{ forloop.counter }}</th>
-            <td class="">{{result.university_serial_id.university_id}}</td>
-            <td>{{result.university_serial_id.student_name}}</td>
-            <td class="">{{result.company_placed}}</td>
-            <td>{{result.offer_mode}}</td>
-            <td>{{result.company_type}}</td>
-            <td class="">{{result.ctc}}</td>
-            <td>{{result.dateOfInterview}}</td>
-            <td>{{result.receivedOfferLetter}}</td>
-            <td>{{result.dateOfOfferLetter}}</td>
-          </tr>
-          {%endfor%}
-        </tbody>
-      </table>
-    </div>
-    <div class="container-fluid mt-3" id="student-wise-table">
-      <table class="table table-hover display" id="student-table">
-        <thead class="table-dark">
-          <tr>
-            <th scope="col">SR.NO.</th>
-            <th scope="col" class="">UID</th>
-            <th scope="col">STUDENT NAME</th>
-            <th scope="col" class="">COMPANY PLACED</th>
-            <th scope="col" class="">CTC</th>
-            <th scope="col">RECEIVED OFFER LETTER</th>
-            <th scope="col">DATE OF OFFER LETTER</th>
-            <th scope="col">FINISHING SCHOOL ATTENDED</th>
-  
-          </tr>
-        </thead>
-        <tbody>
-          {%for result in results%}
-          <tr>
-            <th scope="">{{ forloop.counter }}</th>
-            <td class="">{{result.university_serial_id.university_id}}</td>
-            <td>{{result.university_serial_id.student_name}}</td>
-            <td class="">{{result.company_placed}}</td>
-            <td class="">{{result.ctc}}</td>
-            <td>{{result.receivedOfferLetter}}</td>
-            <td>{{result.dateOfOfferLetter}}</td>
-            <td>{{result.university_serial_id.finishing_school_attended}}</td>
-          </tr>
-          {%endfor%}
-        </tbody>
-      </table>
-    </div>
-    <div class="container-fluid mt-3" id="company-wise-table">
-      <table class="table table-hover display" id="company-table">
-        <thead class="table-dark">
-          <tr>
-            <th scope="col">SR.NO.</th>
-            <th scope="col">COMPANY</th>
-            <th scope="col">NO. OF STUDENTS PLACED</th>
-            <th scope="col">CTC</th>
-            <th scope="col">OFFER MODE</th>
-            <th scope="col">COMPANY TYPE</th>
-          </tr>
-        </thead>
-        <tbody>
-          {%for company in companies%}
-          <tr>
-            <th scope="">{{ forloop.counter }}</th>
-            <td>{{company.company_placed}}</td>
-            <td>{{company.the_count}}</td>
-            <td>{{company.ctc}}</td>
-            <td>{{company.offer_mode}}</td>
-            <td>{{company.company_type}}</td>
-          </tr>
-          {%endfor%}
-        </tbody>
-      </table>
-    </div>
-  </div>
-  {%else%}
-  <div class="container-fluid">
-    <div class="offset-md-3 mt-5 w-50">
-      <h2 class="h2">You are not logged in!</h2>
-      <p class="p">
-        Please login to use the features.
-      </p>
-      <div class="border-top pt-3">
-        <small class="text-muted">
-          <a href="{%url 'login'%}">Login to continue!</a>
-        </small>
-      </div>
-    </div>
-  </div>
-  {%endif%}
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
-    crossorigin="anonymous"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script type="text/javascript" charset="utf8"
-    src="https://cdn.datatables.net/1.11.1/js/jquery.dataTables.min.js"></script>
-  <script type="text/javascript" charset="utf8"
-    src="https://cdn.datatables.net/buttons/2.0.0/js/dataTables.buttons.min.js"></script>
-  <script type="text/javascript" charset="utf8"
-    src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-  <script type="text/javascript" charset="utf8"
-    src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-  <script type="text/javascript" charset="utf8"
-    src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-  <script type="text/javascript" charset="utf8"
-    src="https://cdn.datatables.net/buttons/2.0.0/js/buttons.html5.min.js"></script>
-  <script type="text/javascript" charset="utf8"
-    src="https://cdn.datatables.net/buttons/2.0.0/js/buttons.colVis.min.js"></script>
-  <script type="text/javascript" charset="utf8"
-    src="https://cdn.datatables.net/buttons/2.0.0/js/buttons.print.min.js"></script>
-  <script>
-    $(document).ready(function () {
+        <nav class="navbar navbar-expand-lg first-nav">
+          <div class="container container-1">
+            <a class="navbar-brand" href="{%url 'home-page'%}">Placement Report Generator</a>
+            {% if user.is_authenticated %}
+            <div class="collapse navbar-collapse justify-content-end" id="navbarText">
+              <button class="btn-color-1 btn-2 me-3" id="nba-btn"><span>NBA</span></button>
+              <button class="btn-color-1 btn-2 me-3" id="student-wise-btn"><span>Student-wise</span></button>
+              <button class="btn-color-1 btn-2 me-0" id="company-wise-btn"><span>Company-wise</span></button>
+              <span class="navbar-text">
+                <a href="{% url 'logout' %}"><button class="btn-1 btn-color-1 ms-5" type="button"><span>LOGOUT</span> <i class="fas fa-sign-out-alt"></i></button></a>
+              </span>
+            </div>
+            {%endif%}
+          </div>
+        </nav>
+        
+        <!-- <div>
+          {% if user.is_authenticated %}
+          <div class="container-fluid mt-3" id="nba-table">
+            <table class="table table-hover display" id="nba">
+              <thead class="table-dark">
+                <tr>
+                  <th scope="col">SR.NO.</th>
+                  <th scope="col" class="">UID</th>
+                  <th scope="col" >STUDENT NAME</th>
+                  <th scope="col" class="">COMPANY PLACED</th>
+                  <th scope="col">OFFER MODE</th>
+                  <th scope="col">COMPANY TYPE</th>
+                  <th scope="col" class="">CTC</th>
+                  <th scope="col">DATE OF INTERVIEW</th>
+                  <th scope="col">RECEIVED OFFER LETTER</th>
+                  <th scope="col">DATE OF OFFER LETTER</th>
+                </tr>
+              </thead>
+              <tbody>
+                {%for result in results%}
+                <tr>
+                  <th scope="">{{ forloop.counter }}</th>
+                  <td class="">{{result.university_serial_id.university_id}}</td>
+                  <td>{{result.university_serial_id.student_name}}</td>
+                  <td class="">{{result.company_placed}}</td>
+                  <td>{{result.offer_mode}}</td>
+                  <td>{{result.company_type}}</td>
+                  <td class="">{{result.ctc}}</td>
+                  <td>{{result.dateOfInterview}}</td>
+                  <td>{{result.receivedOfferLetter}}</td>
+                  <td>{{result.dateOfOfferLetter}}</td>
+                </tr>
+                {%endfor%}
+              </tbody>
+            </table>
+          </div>
+          <div class="container-fluid mt-3" id="student-wise-table">
+            <table class="table table-hover display" id="student-table">
+              <thead class="table-dark">
+                <tr>
+                  <th scope="col">SR.NO.</th>
+                  <th scope="col" class="">UID</th>
+                  <th scope="col">STUDENT NAME</th>
+                  <th scope="col" class="">COMPANY PLACED</th>
+                  <th scope="col" class="">CTC</th>
+                  <th scope="col">RECEIVED OFFER LETTER</th>
+                  <th scope="col">DATE OF OFFER LETTER</th>
+                  <th scope="col">FINISHING SCHOOL ATTENDED</th>
+        
+                </tr>
+              </thead>
+              <tbody>
+                {%for result in results%}
+                <tr>
+                  <th scope="">{{ forloop.counter }}</th>
+                  <td class="">{{result.university_serial_id.university_id}}</td>
+                  <td>{{result.university_serial_id.student_name}}</td>
+                  <td class="">{{result.company_placed}}</td>
+                  <td class="">{{result.ctc}}</td>
+                  <td>{{result.receivedOfferLetter}}</td>
+                  <td>{{result.dateOfOfferLetter}}</td>
+                  <td>{{result.university_serial_id.finishing_school_attended}}</td>
+                </tr>
+                {%endfor%}
+              </tbody>
+            </table>
+          </div>
+          <div class="container-fluid mt-3" id="company-wise-table">
+            <table class="table table-hover display" id="company-table">
+              <thead class="table-dark">
+                <tr>
+                  <th scope="col">SR.NO.</th>
+                  <th scope="col">COMPANY</th>
+                  <th scope="col">NO. OF STUDENTS PLACED</th>
+                  <th scope="col">CTC</th>
+                  <th scope="col">OFFER MODE</th>
+                  <th scope="col">COMPANY TYPE</th>
+                </tr>
+              </thead>
+              <tbody>
+                {%for company in companies%}
+                <tr>
+                  <th scope="">{{ forloop.counter }}</th>
+                  <td>{{company.company_placed}}</td>
+                  <td>{{company.the_count}}</td>
+                  <td>{{company.ctc}}</td>
+                  <td>{{company.offer_mode}}</td>
+                  <td>{{company.company_type}}</td>
+                </tr>
+                {%endfor%}
+              </tbody>
+            </table>
+          </div>
+        </div>
+        {%else%}
+        <div class="container-fluid">
+          <div class="offset-md-3 mt-5 w-50">
+            <h2 class="h2">You are not logged in!</h2>
+            <p class="p">
+              Please login to use the features.
+            </p>
+            <div class="border-top pt-3">
+              <small class="text-muted">
+                <a href="{%url 'login'%}">Login to continue!</a>
+              </small>
+            </div>
+          </div>
+        </div>
+        {%endif%}
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+          crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script type="text/javascript" charset="utf8"
+          src="https://cdn.datatables.net/1.11.1/js/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" charset="utf8"
+          src="https://cdn.datatables.net/buttons/2.0.0/js/dataTables.buttons.min.js"></script>
+        <script type="text/javascript" charset="utf8"
+          src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+        <script type="text/javascript" charset="utf8"
+          src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+        <script type="text/javascript" charset="utf8"
+          src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+        <script type="text/javascript" charset="utf8"
+          src="https://cdn.datatables.net/buttons/2.0.0/js/buttons.html5.min.js"></script>
+        <script type="text/javascript" charset="utf8"
+          src="https://cdn.datatables.net/buttons/2.0.0/js/buttons.colVis.min.js"></script>
+        <script type="text/javascript" charset="utf8"
+          src="https://cdn.datatables.net/buttons/2.0.0/js/buttons.print.min.js"></script>
+        <script>
+          $(document).ready(function () {
 
-      var nbaTable=$('#nba').DataTable({
-        // "pageLength": 10,
-        "paging": false,
-        "scrollY": "500px",
-        "scrollCollapse": true,
-        dom: 'Bfrtip',
-        buttons: [
-          {
-            extend: 'copyHtml5',
-            text: '<i class="fas fa-copy"></i> Copy Text',
-            title: 'NBA DATA',
-            // text: 'Copy Text',
-            className:'btn first',
-            exportOptions: {
-              columns: ':visible'
-            }
-          },
-          {
-            extend: 'excelHtml5',
-            text: '<i class="fas fa-file-excel"></i> Export to Excel',
-            className:'btn first',
-            // text: 'Export to Excel',
-            title: 'NBA DATA',
-            // className:'custom-btn btn-11',
-            exportOptions: {
-              columns: ':visible'
-            }
-          },
-          {
-            extend: 'csv',
-            text: '<i class="fas fa-file-csv"></i> Export to CSV',
-            className:'btn first',
-            // text: 'Export to CSV',
-            title: 'NBA DATA',
-            // className:'custom-btn btn-11',
-            exportOptions: {
-              columns: ':visible'
-            }
-          },
-          {
-            extend: 'pdfHtml5',
-            text: '<i class="fas fa-file-pdf"></i> Download PDF',
-            className:'btn first',
-            // text: 'Download PDF',
-            title: 'NBA DATA',
-            // className:'custom-btn btn-11',
-            exportOptions: {
-              columns: ':visible'
-            }
-          },
-          {
-            extend: 'print',
-            text: '<i class="fas fa-print"></i> Print',
-            className:'btn first',
-            title: 'NBA DATA',
-            // className:'custom-btn btn-11',
-            exportOptions: {
-              columns: ':visible'
-            }
-          },
-          {
-            extend: 'colvis',
-            className: 'btn-dropdown dropdown',
-            columnText: function(dt, idx, title){
-              return (idx+1) + ': '+ title;
-            }
-          }
-        ],
-        columnDefs: [{
-          targets: [ 4, 5, 6, 7, 8],
-          visible: false
-        }],
-        language: {
-          buttons: {
-            colvis: 'Toggle Column Visibility',
-          }
-        }
-      });
-      var studentTable=$('#student-table').DataTable({
-        // "pageLength": 10,
-        "paging": false,
-        "scrollY": "500px",
-        "scrollCollapse": true,
-        dom: 'Bfrtip',
-        buttons: [
-          {
-            extend: 'copyHtml5',
-            text: '<i class="fas fa-copy"></i> Copy Text',
-            title: 'STUDENT-WISE DATA',
-            className:'btn first',
-            exportOptions: {
-              columns: ':visible'
-            }
-          },
-          {
-            extend: 'excelHtml5',
-            text: '<i class="fas fa-file-excel"></i> Export to Excel',
-            className:'btn first',
-            title: 'STUDENT-WISE DATA',
-            exportOptions: {
-              columns: ':visible'
-            }
-          },
-          {
-            extend: 'csv',
-            text: '<i class="fas fa-file-csv"></i> Export to CSV',
-            className:'btn first',
-            title: 'STUDENT-WISE DATA',
-            exportOptions: {
-              columns: ':visible'
-            }
-          },
-          {
-            extend: 'pdfHtml5',
-            text: '<i class="fas fa-file-pdf"></i> Download PDF',
-            className:'btn first',
-            title: 'STUDENT-WISE DATA',
-            exportOptions: {
-              columns: ':visible'
-            }
-          },
-          {
-            extend: 'print',
-            text: '<i class="fas fa-print"></i> Print',
-            title: 'STUDENT-WISE DATA',
-            className:'btn first',
-            exportOptions: {
-              columns: ':visible'
-            }
-          },
-          {
-            extend: 'colvis',
-            className: 'btn-dropdown dropdown',
-            columnText: function(dt, idx, title){
-              return (idx+1) + ': '+ title;
-            }
-          }
-        ],
-        columnDefs: [{
-          targets: [1, 4, 5, 6, 7],
-          visible: false
-        }],
-        language: {
-          buttons: {
-            colvis: 'Toggle Column Visibility',
-          }
-        }
+            var nbaTable=$('#nba').DataTable({
+              // "pageLength": 10,
+              "paging": false,
+              "scrollY": "500px",
+              "scrollCollapse": true,
+              dom: 'Bfrtip',
+              buttons: [
+                {
+                  extend: 'copyHtml5',
+                  text: '<i class="fas fa-copy"></i> Copy Text',
+                  title: 'NBA DATA',
+                  // text: 'Copy Text',
+                  className:'btn first',
+                  exportOptions: {
+                    columns: ':visible'
+                  }
+                },
+                {
+                  extend: 'excelHtml5',
+                  text: '<i class="fas fa-file-excel"></i> Export to Excel',
+                  className:'btn first',
+                  // text: 'Export to Excel',
+                  title: 'NBA DATA',
+                  // className:'custom-btn btn-11',
+                  exportOptions: {
+                    columns: ':visible'
+                  }
+                },
+                {
+                  extend: 'csv',
+                  text: '<i class="fas fa-file-csv"></i> Export to CSV',
+                  className:'btn first',
+                  // text: 'Export to CSV',
+                  title: 'NBA DATA',
+                  // className:'custom-btn btn-11',
+                  exportOptions: {
+                    columns: ':visible'
+                  }
+                },
+                {
+                  extend: 'pdfHtml5',
+                  text: '<i class="fas fa-file-pdf"></i> Download PDF',
+                  className:'btn first',
+                  // text: 'Download PDF',
+                  title: 'NBA DATA',
+                  // className:'custom-btn btn-11',
+                  exportOptions: {
+                    columns: ':visible'
+                  }
+                },
+                {
+                  extend: 'print',
+                  text: '<i class="fas fa-print"></i> Print',
+                  className:'btn first',
+                  title: 'NBA DATA',
+                  // className:'custom-btn btn-11',
+                  exportOptions: {
+                    columns: ':visible'
+                  }
+                },
+                {
+                  extend: 'colvis',
+                  className: 'btn-dropdown dropdown',
+                  columnText: function(dt, idx, title){
+                    return (idx+1) + ': '+ title;
+                  }
+                }
+              ],
+              columnDefs: [{
+                targets: [ 4, 5, 6, 7, 8],
+                visible: false
+              }],
+              language: {
+                buttons: {
+                  colvis: 'Toggle Column Visibility',
+                }
+              }
+            });
+            var studentTable=$('#student-table').DataTable({
+              // "pageLength": 10,
+              "paging": false,
+              "scrollY": "500px",
+              "scrollCollapse": true,
+              dom: 'Bfrtip',
+              buttons: [
+                {
+                  extend: 'copyHtml5',
+                  text: '<i class="fas fa-copy"></i> Copy Text',
+                  title: 'STUDENT-WISE DATA',
+                  className:'btn first',
+                  exportOptions: {
+                    columns: ':visible'
+                  }
+                },
+                {
+                  extend: 'excelHtml5',
+                  text: '<i class="fas fa-file-excel"></i> Export to Excel',
+                  className:'btn first',
+                  title: 'STUDENT-WISE DATA',
+                  exportOptions: {
+                    columns: ':visible'
+                  }
+                },
+                {
+                  extend: 'csv',
+                  text: '<i class="fas fa-file-csv"></i> Export to CSV',
+                  className:'btn first',
+                  title: 'STUDENT-WISE DATA',
+                  exportOptions: {
+                    columns: ':visible'
+                  }
+                },
+                {
+                  extend: 'pdfHtml5',
+                  text: '<i class="fas fa-file-pdf"></i> Download PDF',
+                  className:'btn first',
+                  title: 'STUDENT-WISE DATA',
+                  exportOptions: {
+                    columns: ':visible'
+                  }
+                },
+                {
+                  extend: 'print',
+                  text: '<i class="fas fa-print"></i> Print',
+                  title: 'STUDENT-WISE DATA',
+                  className:'btn first',
+                  exportOptions: {
+                    columns: ':visible'
+                  }
+                },
+                {
+                  extend: 'colvis',
+                  className: 'btn-dropdown dropdown',
+                  columnText: function(dt, idx, title){
+                    return (idx+1) + ': '+ title;
+                  }
+                }
+              ],
+              columnDefs: [{
+                targets: [1, 4, 5, 6, 7],
+                visible: false
+              }],
+              language: {
+                buttons: {
+                  colvis: 'Toggle Column Visibility',
+                }
+              }
 
-      });
-      var companyTable=$('#company-table').DataTable({
-        // "pageLength": 10,
-        "paging": false,
-        "scrollY": "500px",
-        "scrollCollapse": true,
-        dom: 'Bfrtip',
-        buttons: [
-          {
-            extend: 'copyHtml5',
-            text: '<i class="fas fa-copy"></i> Copy Text',
-            title: 'COMPANY-WISE DATA',
-            className:'btn first',
-            exportOptions: {
-              columns: ':visible'
-            }
-          },
-          {
-            extend: 'excelHtml5',
-            text: '<i class="fas fa-file-excel"></i> Export to Excel',
-            className:'btn first',
-            title: 'COMPANY-WISE DATA',
-            exportOptions: {
-              columns: ':visible'
-            }
-          },
-          {
-            extend: 'csv',
-            text: '<i class="fas fa-file-csv"></i> Export to CSV',
-            className:'btn first',
-            title: 'COMPANY-WISE DATA',
-            exportOptions: {
-              columns: ':visible'
-            }
-          },
-          {
-            extend: 'pdfHtml5',
-            text: '<i class="fas fa-file-pdf"></i> Download PDF',
-            className:'btn first',
-            title: 'COMPANY-WISE DATA',
-            exportOptions: {
-              columns: ':visible'
-            }
-          },
-          {
-            extend: 'print',
-            text: '<i class="fas fa-print"></i> Print',
-            title: 'COMPANY-WISE DATA',
-            className:'btn first',
-            exportOptions: {
-              columns: ':visible'
-            }
-          },
-          {
-            extend: 'colvis',
-            className: 'btn-dropdown dropdown',
-            columnText: function(dt, idx, title){
-              return (idx+1) + ': '+ title;
-            }
-          }
-        ],
-        columnDefs: [{
-          targets: [2, 3, 4],
-          visible: false
-        }],
-        language: {
-          buttons: {
-            colvis: 'Toggle Column Visibility',
-          } 
-        }
+            });
+            var companyTable=$('#company-table').DataTable({
+              // "pageLength": 10,
+              "paging": false,
+              "scrollY": "500px",
+              "scrollCollapse": true,
+              dom: 'Bfrtip',
+              buttons: [
+                {
+                  extend: 'copyHtml5',
+                  text: '<i class="fas fa-copy"></i> Copy Text',
+                  title: 'COMPANY-WISE DATA',
+                  className:'btn first',
+                  exportOptions: {
+                    columns: ':visible'
+                  }
+                },
+                {
+                  extend: 'excelHtml5',
+                  text: '<i class="fas fa-file-excel"></i> Export to Excel',
+                  className:'btn first',
+                  title: 'COMPANY-WISE DATA',
+                  exportOptions: {
+                    columns: ':visible'
+                  }
+                },
+                {
+                  extend: 'csv',
+                  text: '<i class="fas fa-file-csv"></i> Export to CSV',
+                  className:'btn first',
+                  title: 'COMPANY-WISE DATA',
+                  exportOptions: {
+                    columns: ':visible'
+                  }
+                },
+                {
+                  extend: 'pdfHtml5',
+                  text: '<i class="fas fa-file-pdf"></i> Download PDF',
+                  className:'btn first',
+                  title: 'COMPANY-WISE DATA',
+                  exportOptions: {
+                    columns: ':visible'
+                  }
+                },
+                {
+                  extend: 'print',
+                  text: '<i class="fas fa-print"></i> Print',
+                  title: 'COMPANY-WISE DATA',
+                  className:'btn first',
+                  exportOptions: {
+                    columns: ':visible'
+                  }
+                },
+                {
+                  extend: 'colvis',
+                  className: 'btn-dropdown dropdown',
+                  columnText: function(dt, idx, title){
+                    return (idx+1) + ': '+ title;
+                  }
+                }
+              ],
+              columnDefs: [{
+                targets: [2, 3, 4],
+                visible: false
+              }],
+              language: {
+                buttons: {
+                  colvis: 'Toggle Column Visibility',
+                } 
+              }
 
-      });
-      $('#student-wise-table').hide();
-      $('#company-wise-table').hide();
-      $('#nba-btn').addClass("active")
+            });
+            $('#student-wise-table').hide();
+            $('#company-wise-table').hide();
+            $('#nba-btn').addClass("active")
 
 
-    $('#student-wise-btn').click(function() {
-      $(this).addClass("active");
-      $('#company-wise-btn').removeClass("active");
-      $('#nba-btn').removeClass("active");
-      $('#nba-table').hide();
-      $('#company-wise-table').hide();
-      $('#student-wise-table').show();
-      $(window).bind('resize', function () {
-        studentTable.fnAdjustColumnSizing();
-      } );
+          $('#student-wise-btn').click(function() {
+            $(this).addClass("active");
+            $('#company-wise-btn').removeClass("active");
+            $('#nba-btn').removeClass("active");
+            $('#nba-table').hide();
+            $('#company-wise-table').hide();
+            $('#student-wise-table').show();
+            $(window).bind('resize', function () {
+              studentTable.fnAdjustColumnSizing();
+            } );
 
-    });
-    $('#company-wise-btn').click(function() {
-      $(this).addClass("active");
-      $('#student-wise-btn').removeClass("active");
-      $('#nba-btn').removeClass("active");
-      $('#nba-table').hide();
-      $('#student-wise-table').hide();
-      $('#company-wise-table').show();
-      $(window).bind('resize', function () {
-        companyTable.fnAdjustColumnSizing();
-      } );
-    });
-    $('#nba-btn').click(function() {
-      $(this).addClass("active");
-      $('#student-wise-btn').removeClass("active");
-      $('#company-wise-btn').removeClass("active");
-      $('#student-wise-table').hide();
-      $('#company-wise-table').hide();
-      $('#nba-table').show();
-      $(window).bind('resize', function () {
-        nbaTable.fnAdjustColumnSizing();
-      } );
+          });
+          $('#company-wise-btn').click(function() {
+            $(this).addClass("active");
+            $('#student-wise-btn').removeClass("active");
+            $('#nba-btn').removeClass("active");
+            $('#nba-table').hide();
+            $('#student-wise-table').hide();
+            $('#company-wise-table').show();
+            $(window).bind('resize', function () {
+              companyTable.fnAdjustColumnSizing();
+            } );
+          });
+          $('#nba-btn').click(function() {
+            $(this).addClass("active");
+            $('#student-wise-btn').removeClass("active");
+            $('#company-wise-btn').removeClass("active");
+            $('#student-wise-table').hide();
+            $('#company-wise-table').hide();
+            $('#nba-table').show();
+            $(window).bind('resize', function () {
+              nbaTable.fnAdjustColumnSizing();
+            } );
 
-    });
+          });
 
 
-    });
-  </script>
+          });
+        </script> -->
 </body>
 
 </html>
