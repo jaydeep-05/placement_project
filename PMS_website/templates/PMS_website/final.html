@@ -28,7 +28,7 @@
               <button class="btn-color-1 btn-2 me-3" id="student-wise-btn"><span>Student-wise</span></button>
               <button class="btn-color-1 btn-2 me-0" id="company-wise-btn"><span>Company-wise</span></button>
               <span class="navbar-text">
-                <a href="{% url 'logout' %}"><button class="btn-1 btn-color-1 ms-5" type="button"><span>LOGOUT</span> <i class="fas fa-sign-out-alt"></i></button></a>
+                <a href="{% url 'logout' %}"><button class="btn-1 btn-color-1 ms" type="button"><span>LOGOUT</span> <i class="fas fa-sign-out-alt"></i></button></a>
               </span>
             </div>
             {%endif%}
@@ -39,7 +39,7 @@
           {% if user.is_authenticated %}
           <div class="container-fluid mt-3" id="nba-table">
             <table class="table table-hover display" id="nba">
-              <thead class="table-dark">
+              <thead class="nba-thead">
                 <tr>
                   <th scope="col">SR.NO.</th>
                   <th scope="col" class="">UID</th>
@@ -53,7 +53,7 @@
                   <th scope="col">DATE OF OFFER LETTER</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody class="nba-tbody">
                 {%for result in results%}
                 <tr>
                   <th scope="">{{ forloop.counter }}</th>
@@ -73,7 +73,7 @@
           </div>
           <div class="container-fluid mt-3" id="student-wise-table">
             <table class="table table-hover display" id="student-table">
-              <thead class="table-dark">
+              <thead class="student-thead">
                 <tr>
                   <th scope="col">SR.NO.</th>
                   <th scope="col" class="">UID</th>
@@ -86,7 +86,7 @@
         
                 </tr>
               </thead>
-              <tbody>
+              <tbody class="student-tbody">
                 {%for result in results%}
                 <tr>
                   <th scope="">{{ forloop.counter }}</th>
@@ -104,7 +104,7 @@
           </div>
           <div class="container-fluid mt-3" id="company-wise-table">
             <table class="table table-hover display" id="company-table">
-              <thead class="table-dark">
+              <thead class="company-thead">
                 <tr>
                   <th scope="col">SR.NO.</th>
                   <th scope="col">COMPANY</th>
@@ -114,7 +114,7 @@
                   <th scope="col">COMPANY TYPE</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody class="company-tbody">
                 {%for company in companies%}
                 <tr>
                   <th scope="">{{ forloop.counter }}</th>
