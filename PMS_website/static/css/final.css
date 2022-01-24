@@ -82,7 +82,7 @@ a.navbar-brand:hover {
   font-weight: bold;
   display: inline-block;
   text-align: center;
-  border: 1px solid transparent;
+  border: 2px solid #ffffff;
   padding: 0.175rem 0.35rem;
   font-size: 1.25rem;
   border-radius: 0.4rem;
@@ -93,53 +93,26 @@ a.navbar-brand:hover {
 .btn-2:hover {
   color: #ffffff;
   background-color: #701212;
-  border-color: #651010;
+  border-color: #ffffff;
+}
+
+.btn-2.active {
+  background-color: #db1111;
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.dt-button.btn {
+/* .dt-button.btn {
   width: 130px;
   height: 40px;
-  box-sizing: border-box;
+  box-sizing: border-box; */
   /* background-color: #39C0ED; */
-  -webkit-appearance: none;
+  /* -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background-color: transparent;
+  background-color: transparent; */
   /* border: 3px solid var(--font-color); */
-  border-radius: 4px;
-  color: var(--font-color);
+  /* border-radius: 4px; */
+  /* color: var(--font-color);
   cursor: pointer;
   align-self: center;
   font-size: 15px;
@@ -150,9 +123,9 @@ a.navbar-brand:hover {
   text-decoration: none;
   text-align: center;
   font-family: var(--regular_font);
-}
+} */
 
-.dt-button.btn:hover, .dt-button.btn:focus {
+/* .dt-button.btn:hover, .dt-button.btn:focus {
   color: #fff;
   outline: 0;
 } 
@@ -172,10 +145,10 @@ a.navbar-brand:hover {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background-color: transparent;
+  background-color: transparent; */
   /* background-color: #39C0ED; */
   /* border: 3px solid var(--font-color); */
-  border-radius: 4px;
+  /* border-radius: 4px;
   color: var(--font-color);
   cursor: pointer;
   align-self: center;
@@ -222,7 +195,7 @@ div.dataTables_scroll {
 
 #company-table_filter {
   margin-right: 2%;
-}
+} */
 
 
 
