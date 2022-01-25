@@ -1,0 +1,138 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    scroll-behavior: smooth;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+  
+body {
+    background-image: url("../assets/back.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+  
+/* navbar CSS */
+  
+nav.navbar.navbar-expand-lg.first-nav {
+    background-color: #911717;
+}
+  
+.first-nav {
+    height: 3.5rem;
+}
+
+.container-1 {
+    height: fit-content;
+}
+  
+.navbar-brand {
+    color: #ffffff;
+    display: inline-block;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    white-space: nowrap;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+  
+a.navbar-brand {
+    color: #ffffff;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 1.3rem;
+}
+  
+a.navbar-brand:hover {
+    color: #ffffff;
+}
+
+.btn-1 {
+    cursor: pointer;
+    font-weight: bold;
+    display: inline-block;
+    text-align: center;
+    border: 1px solid transparent;
+    padding: 0.175rem 0.35rem;
+    font-size: 1.25rem;
+    border-radius: 0.4rem;
+    line-height: 1.5;
+    user-select: none;
+}
+  
+.btn-1:hover {
+    color: #ffffff;
+    background-color: #701212;
+    border-color: #651010;
+}
+
+.btn-2 {
+    cursor: pointer;
+    font-weight: bold;
+    display: inline-block;
+    text-align: center;
+    border: 2px solid #ffffff;
+    padding: 0.275rem 1rem;
+    font-size: 1.4rem;
+    border-radius: 0.4rem;
+    line-height: 1.5;
+    user-select: none;
+}
+  
+.btn-2:hover {
+    color: #ffffff;
+    background-color: #701212;
+    border-color: #ffffff;
+}
+  
+.ms {
+    margin-left: 100px;
+}
+  
+.btn-color-1 {
+    color: #ffffff;
+    background-color: #911717;
+    border-color: #911717;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+  
+.btn-color-1 span {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+form.m4 {
+    margin: 2rem !important;
+}
+
+fieldset.form-group legend {
+    font-size: 2.0rem;
+    font-weight: 500;
+    color: #333;
+    text-align: center;
+}
+
+div#div_id_university_id.form-group {
+    margin-top: 5rem;
+}
+
+div#div_id_student_name.form-group, div#div_id_department.form-group, div#div_id_finishing_school_attended.form-group, div#div_id_placed_year.form-group {
+    margin-top: 0.8rem;
+}
+
+div#div_id_university_id.form-group label, div#div_id_student_name.form-group label, div#div_id_department.form-group label, div#div_id_finishing_school_attended.form-group label, div#div_id_placed_year.form-group label {
+    font-size: 1.3rem;
+    color: #333;
+    font-weight: 400;
+}
+
+.mt-3 {
+    text-align: center;
+}
+
+.form-control {
+    border: 1px solid #651010;
+    border-radius: 0.5rem;
+    padding: 0.475rem 1rem;
+}
