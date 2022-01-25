@@ -37,7 +37,7 @@
         
         <div>
           {% if user.is_authenticated %}
-          <div class="container-fluid mt-3" id="nba-table">
+          <div class="container-fluid mt-2" id="nba-table">
             <table class="table table-hover display" id="nba">
               <thead class="nba-thead">
                 <tr>
@@ -71,7 +71,7 @@
               </tbody>
             </table>
           </div>
-          <div class="container-fluid mt-3" id="student-wise-table">
+          <div class="container-fluid mt-2" id="student-wise-table">
             <table class="table table-hover display" id="student-table">
               <thead class="student-thead">
                 <tr>
@@ -102,7 +102,7 @@
               </tbody>
             </table>
           </div>
-          <div class="container-fluid mt-3" id="company-wise-table">
+          <div class="container-fluid mt-2" id="company-wise-table">
             <table class="table table-hover display" id="company-table">
               <thead class="company-thead">
                 <tr>
@@ -127,6 +127,15 @@
                 {%endfor%}
               </tbody>
             </table>
+          </div>
+          <div class="fixed-footer">
+            <a href="https://kjsieit.somaiya.edu.in/en" rel="noopener noreferrer" target="_blank">KJSIEIT</a>
+            <div style="user-select: none;">
+                <a href="#">Support</a>
+                |
+                <a href="#">About Us</a>
+            </div>
+            <a href="https://www.somaiya.edu/en" rel="noopener noreferrer" target="_blank">Somaiya Vidyavihar</a>
           </div>
         </div>
         {%else%}
