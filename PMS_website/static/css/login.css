@@ -146,6 +146,7 @@ body {
   font-weight: lighter;
   color: var(--main-gray);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-left: -4rem;
 }
 
 .project-title {
@@ -160,9 +161,12 @@ body {
   text-shadow: 1px 1px 3px #ccc;    
 }
 
+.form-div {
+  margin-left: 1.5rem;
+}
 
 .group-members {
-  margin-top: 1rem;
+  margin-top: 1.5rem;
 }
 
 .group-members h2 {
@@ -173,21 +177,112 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-align: center;
   margin-bottom: 0.5rem;
+  margin-left: -1.5rem;
 }
 
 div.names-1, div.type-1, div.class-1, div.links-1 {
   display: flex;
-  /* justify-content: space-between; */
   align-items: center;
 }
 
 div.names-1 h5 {
+  margin-top: 0.3rem;
   font-size: 1.2rem;
-  font-weight: bold;
+  font-weight: 500;
   color: #333;
+  text-shadow: 1px 1px 3px #ccc;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+div.type-1 h5, div.class-1 h5{
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #333;
+  text-shadow: 1px 1px 3px #ccc;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+h5.type-2 {
+  margin-left: -0.5rem;
+  margin-right: 12.5rem;
+}
+
+h5.type-3 {
+  margin-right: 13.2rem;
+}
+
+h5.type-4 {
+  margin-right: 10.2rem;
+}
+
+h5.names-2 {
+  margin-left: -2rem;
+  margin-right: 8rem;
+}
+
+h5.names-3{
+  margin-right: 8.3rem;
+}
+
+h5.names-4 {
+  margin-right: 5.7rem;
+}
+
+h5.class-2 {
+  margin-left: -1.1rem;
+  margin-right: 11.2rem;
+}
+
+h5.class-3 {
+  margin-right: 11.7rem;
+}
+
+h5.class-4 {
+  margin-right: 7.2rem;
+}
+
+div.links-2 {
+  margin-left: 0.3rem;
+  margin-right: 14.5rem;
+}
+
+div.links-3 {
+  margin-right: 15.3rem;
+}
+
+div.links-4 {
+  margin-right: 13.5rem;
+}
+
+i.fab {
+  font-size: 1.6rem;
+  color: #333;
+  text-shadow: 1px 1px 3px #ccc;
+}
+
+i.fab:hover {
+  color: #00397a;
+}
+
+i.link-1 {
+  margin-left: -0.5rem;
+  margin-right: 0.5rem;
+}
+
+i.link-2 {
+  margin-left: -1.3rem;
+  margin-right: 0.5rem;
+}
+
+i.link-3 {
+  margin-left: -1.7rem;
+  margin-right: 0.5rem;
+}
+
+i.link-4 {
+  margin-left: -1.5rem;
+  margin-right: 0.5rem;
+}
 
 .footer-container {
   margin-top: 3rem;
