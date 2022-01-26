@@ -114,25 +114,15 @@ fieldset.form-group legend {
     text-align: center;
 }
 
-div#div_id_university_id.form-group, div#div_id_university_serial_id.form-group {
+div#div_id_department {
     margin-top: 5rem;
 }
 
-div#div_id_student_name.form-group, div#div_id_department.form-group, div#div_id_finishing_school_attended.form-group, div#div_id_placed_year.form-group {
+div#div_id_summary_year, div#div_id_total_students, div#div_id_eligible_students {
     margin-top: 0.8rem;
 }
 
-div#div_id_company_placed, div#div_id_offer_mode, div#div_id_ctc, div#div_id_dateOfInterview, div#div_id_receivedOfferLetter, div#div_id_dateOfOfferLetter, div#div_id_recruit_year, div#div_id_company_type {
-    margin-top: 0.8rem;
-}
-
-div#div_id_university_id.form-group label, div#div_id_student_name.form-group label, div#div_id_department.form-group label, div#div_id_finishing_school_attended.form-group label, div#div_id_placed_year.form-group label {
-    font-size: 1.3rem;
-    color: #333;
-    font-weight: 400;
-}
-
-div#div_id_university_serial_id label, div#div_id_company_placed label, div#div_id_offer_mode label, div#div_id_ctc label, div#div_id_dateOfInterview label, div#div_id_receivedOfferLetter label, div#div_id_dateOfOfferLetter label, div#div_id_recruit_year label, div#div_id_company_type label {
+div#div_id_department label, div#div_id_summary_year label, div#div_id_total_students label, div#div_id_eligible_students label {
     font-size: 1.3rem;
     color: #333;
     font-weight: 400;
@@ -158,7 +148,6 @@ div#div_id_university_serial_id label, div#div_id_company_placed label, div#div_
 
 .w-50 {
     width: 60% !important;
-    margin-bottom: 3rem;
 }
 
 /* Footer CSS */
@@ -169,7 +158,7 @@ div#div_id_university_serial_id label, div#div_id_company_placed label, div#div_
     display: flex;
     justify-content: space-around;
     padding: 0.8rem 0.5rem;
-    position: relative;
+    position: fixed;
     bottom: 0;
 }
   

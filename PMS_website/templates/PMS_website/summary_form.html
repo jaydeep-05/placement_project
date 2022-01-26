@@ -1,36 +1,76 @@
-{%extends 'PMS_website/index.html'%}
-{% load crispy_forms_tags %}
-{% block content %}
-<title>Add Summary Data</title>
 
-{% if user.is_authenticated %}
-    <div class="container-fluid  ">
-        <div class="mx-auto w-50 ">
-            <form  method="POST" class="m-5">
-                {%csrf_token%}
-                <fieldset class="form-group">
-                    <legend>Add</legend>
-                    {{form|crispy}}
-                </fieldset>
-                <div class="form-group mt-3">
-                    <button class="btn btn-primary" type="submit">Save</button>
-                </div>
-            </form>
+{% load static %}
+{% load crispy_forms_tags %}
+
+<head>
+    <title>Add New Summary Data</title>
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+    integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{% static 'css/summary_form.css' %}">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg first-nav">
+      <div class="container container-1">
+        <a class="navbar-brand" href="{%url 'home-page'%}">Placement Report Generator</a>
+        {% if user.is_authenticated %}
+        <div class="collapse navbar-collapse justify-content-end" id="navbarText">
+          <span class="navbar-text">
+            <a href="{% url 'logout' %}"><button class="btn-1 btn-color-1 ms" type="button"><span>LOGOUT</span> <i class="fas fa-sign-out-alt"></i></button></a>
+          </span>
         </div>
-    </div>
-{% else %}
-    <div class="container-fluid">
-      <div class="offset-md-3 pt-5 w-50">
-        <h2 class="h2">You are not logged in!</h2>
-        <p class="p">
-          Please login to use the features.
-        </p>
-        <div class="border-top pt-3">
-          <small class="text-muted">
-            <a href="{%url 'login'%}">Login in to continue!</a>
-          </small>
+        {%endif%}
+      </div>
+    </nav>
+    <div>
+      {% if user.is_authenticated %}
+      <div class="container-fluid">
+        <div class="mx-auto w-50 style1">
+          <form  method="POST" class="m4">
+            {%csrf_token%}
+            <fieldset class="form-group">
+                <legend>Add New Data</legend>
+                {{form|crispy}}
+            </fieldset>
+            <div class="form-group mt-3">
+                <button class="btn-2 btn-color-1" type="submit">SAVE</button>
+            </div>
+          </form>
         </div>
       </div>
+      <div class="fixed-footer">
+        <a href="https://kjsieit.somaiya.edu.in/en" rel="noopener noreferrer" target="_blank">KJSIEIT</a>
+        <div style="user-select: none;">
+            <a href="#">Support</a>
+            |
+            <a href="#">About Us</a>
+        </div>
+        <a href="https://www.somaiya.edu/en" rel="noopener noreferrer" target="_blank">Somaiya Vidyavihar</a>
+      </div>
     </div>
-{% endif %}
-{%endblock content%}
+    {% else %}
+      <div class="container-fluid">
+        <div class="offset-md-3 pt-5 w-50">
+          <h2 class="h2">You are not logged in!</h2>
+          <p class="p">
+            Please login to use the features.
+          </p>
+          <div class="border-top pt-3">
+            <small class="text-muted">
+              <a href="{%url 'login'%}">Login in to continue!</a>
+            </small>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous">
+    </script>
+</body>
