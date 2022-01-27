@@ -54,14 +54,14 @@
                     </li>
 
                     <li class="nav-link">
-                        <a href="#" class="one-1">
+                        <a href="/add-higherStudy-detail" class="one-1">
                             <i class="fas fa-user-graduate icon"></i>
                             <span class="nav-text-1">Add Higher Studies Data</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="#" class="one-1">
+                        <a href="{%url 'new_entrepreneurship_detail'%}" class="one-1">
                             <i class="fas fa-industry icon"></i>
                             <span class="nav-text-1">Add Entrepreneurship Data</span>
                         </a>
@@ -151,8 +151,8 @@
                               <!-- <button type="submit" class=""><span>Proceed</span></button> -->
                               <div class="buttons-3 d-flex justify-content-around">
                                   <button type="submit" class="btn-color-1 btn-2"><i class="fas fa-eye"></i> <span>View Placement Data</span></button>
-                                  <button type="submit" class="btn-color-1 btn-2"><i class="fas fa-eye"></i> <span>View Higher Studies Data</span></button>
-                                  <button type="submit" class="btn-color-1 btn-2"><i class="fas fa-eye"></i> <span>View Entrepreneurship Data</span></button>
+                                  <button type="submit" formaction="{%url 'higher_study_view'%}" class="btn-color-1 btn-2"><i class="fas fa-eye"></i> <span>View Higher Studies Data</span></button>
+                                  <button type="submit" formaction="{%url 'entrepreneurship_view'%}" class="btn-color-1 btn-2"><i class="fas fa-eye"></i> <span>View Entrepreneurship Data</span></button>
                               </div>
                             </form>
                           </div>

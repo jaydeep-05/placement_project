@@ -1,7 +1,7 @@
 from django.forms import fields
 from django.shortcuts import render,redirect
 from django.db.models import Count
-from .models import Student_Details,Company_Details
+from .models import Student_Details,Company_Details,higher_study,entrepreneurship
 from .forms import *
 from django.contrib import messages
 # Create your views here.
@@ -60,8 +60,32 @@ def insert_summary_details(request):
         form = summaryForm()
     return render(request, "PMS_website/summary_form.html", {"form": form})
 
+def insertHigherStudy(request):
+    if request.method == 'POST':
+        form=higherStudyForm(request.POST or None)
+        if form.is_valid():
+            instance=form.save(commit=False)
+            instance.save()
+            messages.success(request,'Higher Study detail added successfully')
+            return redirect('home-page')
+    else:
+        form=higherStudyForm()
+    return render(request,"PMS_website/higher-studies_form.html",{"form":form})
+
+def insertEntrepreneurShip(request):
+    if request.method == 'POST':
+        form=entrepreneurshipForm(request.POST or None)
+        if form.is_valid():
+            instance=form.save(commit=False)
+            instance.save()
+            messages.success(request,'Entrepreneurship detail added successfully')
+            return redirect('home-page')
+    else:
+        form=entrepreneurshipForm()
+    return render(request,"PMS_website/entrepreneurship_form.html",{"form":form})
+
 def summary(request):
-    year_new=Student_Details.objects.filter().values('placed_year').distinct()
+    year_new=Student_Details.objects.filter().values('placed_year').order_by('placed_year').distinct()
     return render(request,'PMS_website/summary.html',{'years':year_new,})
 
 
@@ -156,4 +180,14 @@ def summary_data(request):
         'percentages':res,
     })
 
+def higher_study_data(request):
+    dept = request.POST.get('department')
+    yr = request.POST.get('year')
+    higher_study_query=higher_study.objects.filter(department=dept,study_year=yr)
+    return render(request,'PMS_website/higher_study.html',{'higher_study_query':higher_study_query})
 
+def entrepreneur_data(request):
+    dept = request.POST.get('department')
+    yr = request.POST.get('year')
+    entrepreneurship_query=entrepreneurship.objects.filter(department=dept,entrepreneurship_year=yr)
+    return render(request,'PMS_website/entrepreneur_data.html',{'entrepreneurship_query':entrepreneurship_query})

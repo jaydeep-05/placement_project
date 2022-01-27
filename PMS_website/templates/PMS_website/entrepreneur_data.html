@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrepreneur Data</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Company Name</th>
+            <th>Student Names</th>
+            <th>Registration Number</th>
+            <th>Start Date</th>
+            <th>Email</th>
+            <th>Website</th>
+            <th>Mobile</th>
+            <th>Founder</th>
+            <th>Organisation Type</th>
+            <th>Incubation Year</th>
+            <th>Company Logo</th>
+            <th>Team Image</th>
+        </tr>
+        {%for e in entrepreneurship_query%}
+        <tr>
+            <td>{{e.company_name}}</td>
+            <td>{{e.student_names}}</td>
+            <td>{{e.registration_number}}</td>
+            <td>{{e.start_date}}</td>
+            <td>{{e.company_email}}</td>
+            <td>{{e.company_website}}</td>
+            <td>{{e.company_mobile}}</td>
+            <td>{{e.founder_name}}</td>
+            <td>{{e.organisation_type}}</td>
+            <td>{{e.incubation_year}}</td>
+            <td>{{e.company_logo}}</td>
+            <td>{{e.team_image}}</td>
+        </tr>
+        {%endfor%}
+    </table>
+</body>
+</html>

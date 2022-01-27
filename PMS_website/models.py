@@ -1,3 +1,4 @@
+from operator import mod
 from django.db import models
 from django.db.models.deletion import CASCADE, PROTECT
 
@@ -93,7 +94,60 @@ class Summary_detail(models.Model):
     def __str__(self) -> str:
         return self.summary_year
 
+class higher_study(models.Model):
+    department_comp='COMP'
+    department_it='IT'
+    department_etrx='ETRX'
+    department_extc='EXTC'
+    department_aids='AI & DS'
+
+    department_choices=[
+        ('COMP',department_comp),
+        ('IT',department_it),
+        ('EXTC',department_extc),
+        ('ETRX',department_etrx),
+        ('AI&DS',department_aids),
+    ]
+
+    department=models.CharField(max_length=255,choices=department_choices,default=department_comp)
+    study_year=models.CharField(max_length=4)
+    student_name=models.CharField(max_length=255)
+    qualifying_exam=models.CharField(max_length=255)
+    university=models.CharField(max_length=1000)
+    country=models.CharField(max_length=255)
+    course=models.CharField(max_length=255)
+    def __str__(self) -> str:
+        return self.student_name
 
 
+class entrepreneurship(models.Model):
+    department_comp='COMP'
+    department_it='IT'
+    department_etrx='ETRX'
+    department_extc='EXTC'
+    department_aids='AI & DS'
 
+    department_choices=[
+        ('COMP',department_comp),
+        ('IT',department_it),
+        ('EXTC',department_extc),
+        ('ETRX',department_etrx),
+        ('AI&DS',department_aids),
+    ]
 
+    department=models.CharField(max_length=255,choices=department_choices,default=department_comp)
+    entrepreneurship_year=models.CharField(max_length=4)
+    company_name=models.CharField(max_length=255,blank=True,default='')
+    student_names=models.TextField()
+    registration_number=models.CharField(max_length=1000,blank=True,default='')
+    start_date=models.CharField(max_length=100,blank=True,default='')
+    company_email=models.EmailField(blank=True,default='NA')
+    company_website=models.CharField(max_length=255,blank=True,default='NA')
+    company_mobile=models.CharField(max_length=10,blank=True,default='NA')
+    founder_name=models.CharField(max_length=255,blank=True,default='NA')
+    organisation_type=models.CharField(max_length=255,blank=True,default='NA')
+    incubation_year=models.CharField(max_length=4,blank=True,default='NA')
+    company_logo=models.ImageField(blank=True)
+    team_image=models.ImageField(blank=True)
+    def __str__(self) -> str:
+        return self.company_name

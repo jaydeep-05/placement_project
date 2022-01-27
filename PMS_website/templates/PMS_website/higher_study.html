@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Higher-Study</title>
+</head>
+<body>
+    <table>
+       <tr>
+           <th>Name</th>
+           <th>Qualifying Exam</th>
+           <th>University</th>
+           <th>Country</th>
+           <th>Course</th>
+       </tr>
+       {%for h in higher_study_query%}
+       <tr>
+           <td>{{h.student_name}}</td>
+           <td>{{h.qualifying_exam}}</td>
+           <td>{{h.university}}</td>
+           <td>{{h.country}}</td>
+           <td>{{h.course}}</td>
+       </tr>
+       {%endfor%}
+    </table>
+</body>
+</html>
