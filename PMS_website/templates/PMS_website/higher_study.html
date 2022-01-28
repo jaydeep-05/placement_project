@@ -1,29 +1,184 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Higher-Study</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>View Higher Studies Data</title>
+  <link rel="stylesheet" href="{%static 'css/higher-study.css' %}">
+  <!-- Bootstrap CDN -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+    integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.1/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.0.0/css/buttons.dataTables.min.css">
 </head>
+
 <body>
-    <table>
-       <tr>
-           <th>Name</th>
-           <th>Qualifying Exam</th>
-           <th>University</th>
-           <th>Country</th>
-           <th>Course</th>
-       </tr>
-       {%for h in higher_study_query%}
-       <tr>
-           <td>{{h.student_name}}</td>
-           <td>{{h.qualifying_exam}}</td>
-           <td>{{h.university}}</td>
-           <td>{{h.country}}</td>
-           <td>{{h.course}}</td>
-       </tr>
-       {%endfor%}
-    </table>
+    <nav class="navbar navbar-expand-lg first-nav">
+        <div class="container container-1">
+          <a class="navbar-brand" href="{%url 'home-page'%}">Placement Report Generator</a>
+          {% if user.is_authenticated %}
+            <div class="collapse navbar-collapse justify-content-end" id="navbarText">
+                <span class="navbar-text">
+                <a href="{% url 'logout' %}"><button class="btn-1 btn-color-1 ms" type="button"><span>LOGOUT</span> <i class="fas fa-sign-out-alt"></i></button></a>
+                </span>
+            </div>
+          {%endif%}
+        </div>
+    </nav>
+    <div>
+        {% if user.is_authenticated %}
+        <div class="container-fluid mt-2">
+            <table class="table table-hover display" id="higher-studies-table">
+                <thead class="higher-studies-thead">
+                    <tr>
+                        <th scope="col">SR.NO.</th>
+                        <th scope="col">STUDENT NAME</th>
+                        <th scope="col">QUALIFYING EXAM</th>
+                        <th scope="col">UNIVERSITY NAME</th>
+                        <th scope="col">UNIVERSITY COUNTRY</th>
+                        <th scope="col">COURSE</th>
+                    </tr>
+                </thead>
+                <tbody class="higher-studies-tbody">
+                    {%for h in higher_study_query%}
+                    <tr>
+                        <th scope="">{{ forloop.counter }}</th>
+                        <td>{{h.student_name}}</td>
+                        <td>{{h.qualifying_exam}}</td>
+                        <td>{{h.university}}</td>
+                        <td>{{h.country}}</td>
+                        <td>{{h.course}}</td>
+                    </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+        </div>
+        <div class="fixed-footer">
+          <a href="https://kjsieit.somaiya.edu.in/en" rel="noopener noreferrer" target="_blank">KJSIEIT</a>
+          <div style="user-select: none;">
+              <a href="#">Support</a>
+              |
+              <a href="#">About Us</a>
+          </div>
+          <a href="https://www.somaiya.edu/en" rel="noopener noreferrer" target="_blank">Somaiya Vidyavihar</a>
+        </div>
+    </div>
+    {%else%}
+        <div class="container-fluid">
+            <div class="offset-md-3 mt-5 w-50">
+            <h2 class="h2">You are not logged in!</h2>
+            <p class="p">
+                Please login to use the features.
+            </p>
+            <div class="border-top pt-3">
+                <small class="text-muted">
+                <a href="{%url 'login'%}">Login to continue!</a>
+                </small>
+            </div>
+            </div>
+        </div>
+    {%endif%}
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+          crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script type="text/javascript" charset="utf8"
+          src="https://cdn.datatables.net/1.11.1/js/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" charset="utf8"
+          src="https://cdn.datatables.net/buttons/2.0.0/js/dataTables.buttons.min.js"></script>
+        <script type="text/javascript" charset="utf8"
+          src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+        <script type="text/javascript" charset="utf8"
+          src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+        <script type="text/javascript" charset="utf8"
+          src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+        <script type="text/javascript" charset="utf8"
+          src="https://cdn.datatables.net/buttons/2.0.0/js/buttons.html5.min.js"></script>
+        <script type="text/javascript" charset="utf8"
+          src="https://cdn.datatables.net/buttons/2.0.0/js/buttons.colVis.min.js"></script>
+        <script type="text/javascript" charset="utf8"
+          src="https://cdn.datatables.net/buttons/2.0.0/js/buttons.print.min.js"></script>
+
+        <script>
+            $(document).ready(function () {
+            var higherstudiesTable = $('#higher-studies-table').DataTable({
+            // "pageLength": 10,
+            "paging": false,
+            "scrollY": "500px",
+            "scrollCollapse": true,
+            dom: 'Bfrtip',
+            buttons: [
+                {
+                extend: 'copyHtml5',
+                text: '<i class="fas fa-copy"></i> Copy Text',
+                title: 'HIGHER-STUDIES DATA',
+                className:'btn first',
+                exportOptions: {
+                    columns: ':visible'
+                }
+                },
+                {
+                extend: 'excelHtml5',
+                text: '<i class="fas fa-file-excel"></i> Export to Excel',
+                className:'btn first',
+                title: 'HIGHER-STUDIES DATA',
+                exportOptions: {
+                    columns: ':visible'
+                }
+                },
+                {
+                extend: 'csv',
+                text: '<i class="fas fa-file-csv"></i> Export to CSV',
+                className:'btn first',
+                title: 'HIGHER-STUDIES DATA',
+                exportOptions: {
+                    columns: ':visible'
+                }
+                },
+                {
+                extend: 'pdfHtml5',
+                text: '<i class="fas fa-file-pdf"></i> Download PDF',
+                className:'btn first',
+                title: 'HIGHER-STUDIES DATA',
+                exportOptions: {
+                    columns: ':visible'
+                }
+                },
+                {
+                extend: 'print',
+                text: '<i class="fas fa-print"></i> Print',
+                title: 'HIGHER-STUDIES DATA',
+                className:'btn first',
+                exportOptions: {
+                    columns: ':visible'
+                }
+                },
+                {
+                extend: 'colvis',
+                className: 'btn-dropdown dropdown',
+                columnText: function(dt, idx, title){
+                    return (idx+1) + ': '+ title;
+                }
+                }
+            ],
+            columnDefs: [{
+                targets: [2, 4, 5],
+                visible: false
+            }],
+            language: {
+                buttons: {
+                colvis: 'Toggle Column Visibility',
+                } 
+            }
+
+            });
+            });
+        </script>
 </body>
 </html>

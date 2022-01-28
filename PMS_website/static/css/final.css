@@ -112,6 +112,7 @@ a.navbar-brand:hover {
   font-weight: 400;
   line-height: 1.5;
 }
+
 div.dt-buttons {
   margin-top: 0rem;
 }
@@ -124,7 +125,7 @@ div.dt-buttons {
   background-color: #911717;
   -webkit-appearance: none;
   -moz-appearance: none; 
-  border-radius: 5px;
+  border-radius: 10px;
   color: #ffffff;
   cursor: pointer;
   align-self: center;
