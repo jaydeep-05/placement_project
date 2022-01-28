@@ -1,3 +1,4 @@
+from distutils.command.upload import upload
 from operator import mod
 from django.db import models
 from django.db.models.deletion import CASCADE, PROTECT
@@ -147,7 +148,7 @@ class entrepreneurship(models.Model):
     founder_name=models.CharField(max_length=255,blank=True,default='NA')
     organisation_type=models.CharField(max_length=255,blank=True,default='NA')
     incubation_year=models.CharField(max_length=4,blank=True,default='NA')
-    company_logo=models.ImageField(blank=True)
-    team_image=models.ImageField(blank=True)
+    company_logo=models.ImageField(blank=True,upload_to='company-logos')
+    team_image=models.ImageField(blank=True,upload_to='team-images')
     def __str__(self) -> str:
         return self.company_name
