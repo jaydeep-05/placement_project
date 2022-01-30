@@ -82,6 +82,10 @@ a.navbar-brand:hover {
 
 /* table & buttons CSS  */
 
+table.table.table-hover.display.nowrap.dataTable.no-footer {
+    width: 100% !important;
+}
+
 .entrepreneur-data-thead{
     background-color: #911717;
     color: #ffffff;

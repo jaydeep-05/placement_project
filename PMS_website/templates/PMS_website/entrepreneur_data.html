@@ -33,7 +33,7 @@
     <div>
         {% if user.is_authenticated %}
         <div class="container-fluid mt-2">
-            <table class="table table-hover display" id="entrepreneur-data-table">
+            <table class="table table-hover display nowrap" id="entrepreneur-data-table">
                 <thead class="entrepreneur-data-thead">
                     <tr>
                         <th scope="col">SR.NO.</th>
@@ -121,7 +121,7 @@
         <script>
             $(document).ready(function () {
             var higherstudiesTable = $('#entrepreneur-data-table').DataTable({
-            // "pageLength": 10,
+            "scrollX": true,
             "paging": false,
             "scrollY": "500px",
             "scrollCollapse": true,
@@ -142,7 +142,8 @@
                   className:'btn first',
                   title: 'ENTREPRENEURSHIP DATA',
                   exportOptions: {
-                      columns: ':visible'
+                      columns: ':visible',
+                      stripHtml: false
                   }
                 },
                 {
@@ -151,7 +152,8 @@
                   className:'btn first',
                   title: 'ENTREPRENEURSHIP DATA',
                   exportOptions: {
-                      columns: ':visible'
+                      columns: ':visible',
+                      stripHtml : false
                   }
                 },
                 {
@@ -160,18 +162,21 @@
                   className:'btn first',
                   title: 'ENTREPRENEURSHIP DATA',
                   orientation: 'landscape',
-                  pageSize: 'LEGAL',
+                  pageSize: 'A2',
                   exportOptions: {
-                      columns: ':visible'
+                      columns: ':visible',
+                      stripHtml: false
                   }
                 },
                 {
                   extend: 'print',
                   text: '<i class="fas fa-print"></i> Print',
+                  
                   title: 'ENTREPRENEURSHIP DATA',
                   className:'btn first',
                   exportOptions: {
-                      columns: ':visible'
+                      columns: ':visible',
+                      stripHtml : false
                   }
                 },
                 {
@@ -183,8 +188,8 @@
                 }
             ],
             columnDefs: [{
-                targets: [4, 5, 7, 9, 12],
-                visible: false
+                targets: [4, 5, 6, 7, 9, 10, 12],
+                visible: false,
             }],
             language: {
                 buttons: {
