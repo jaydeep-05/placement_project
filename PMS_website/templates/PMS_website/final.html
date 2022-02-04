@@ -139,19 +139,36 @@
           </div>
         </div>
         {%else%}
-        <div class="container-fluid">
-          <div class="offset-md-3 mt-5 w-50">
-            <h2 class="h2">You are not logged in!</h2>
-            <p class="p">
-              Please login to use the features.
-            </p>
-            <div class="border-top pt-3">
-              <small class="text-muted">
-                <a href="{%url 'login'%}">Login to continue!</a>
-              </small>
-            </div>
+        <div class="fixed-footer">
+          <a href="https://kjsieit.somaiya.edu.in/en" rel="noopener noreferrer" target="_blank">KJSIEIT</a>
+          <div style="user-select: none;">
+              <a href="#">Support</a>
+              |
+              <a href="#">About Us</a>
           </div>
+          <a href="https://www.somaiya.edu/en" rel="noopener noreferrer" target="_blank">Somaiya Vidyavihar</a>
         </div>
+        <div class="content-1">
+          <div class="event_cards d-flex justify-content-center">
+              <div class="main-content-card">
+                  <div class="d-flex justify-content-center">
+                      <div class="container-2">
+                          <div class="mt-1">
+                              <h2 class="h4 border-bottom pb-2 border-dark border-5">You are not Logged In!</h2>
+                              <p class="p">
+                                Please login to use the features.
+                              </p>
+                              <div class="form-group-1 mt-2 d-flex justify-content-center">
+                                  <small>
+                                      <a href="{% url 'login' %}"><button class="btn-1 btn-color-1" type="button"><span>LOGIN TO CONTINUE</span> <i class="fas fa-sign-in-alt"></i></button></a>
+                                  </small>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
         {%endif%}
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
           integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
